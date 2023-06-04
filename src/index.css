@@ -10,4 +10,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
 
