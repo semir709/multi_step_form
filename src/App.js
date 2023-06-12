@@ -2,6 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import sidebarDesktop from "./assets/images/bg-sidebar-desktop.svg";
 import List from "./components/List";
+import Info from "./containers/Info";
+import Plan from "./containers/Plan";
 
 function App() {
   return (
@@ -25,52 +27,10 @@ function App() {
             </ul>
           </div>
           <div className=" w-full h-full lg:mx-3 flex flex-col items-center justify-between ">
-            <div className=" translate-y-[-30px] lg:translate-y-0  min-[1200px]:w-[400px] lg:w-full h-full w-[80%] bg-white lg:bg-transparent lg:rounded-none rounded-2xl p-5 lg:p-0">
+            <div className=" translate-y-[-30px] lg:translate-y-0  min-[1200px]:w-[500px] lg:w-full h-full w-[90%] bg-white lg:bg-transparent lg:rounded-none rounded-2xl p-5 lg:p-0">
               {/* url */}
-              <div className=" mt-5 h-full ">
-                <h1 className="text-2xl font-bold text-marine-blue">
-                  Personal info
-                </h1>
-                <p className="text-cool-gray">
-                  Please provide your name, email address, and phone number.
-                </p>
-
-                <form
-                  action="/"
-                  method="get"
-                  className="flex flex-col justify-between mt-[40px] lg:h-[65%] md:h-[70%]"
-                >
-                  <div className="flex flex-col text-marine-blue">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      required
-                      placeholder="e.g.Stephen King"
-                      name="name"
-                      id="name"
-                      type="text"
-                      className="p-2 rounded-lg border border-ligh-gray focus:border-marine-blue mb-5 mt-2"
-                    />
-                    <label htmlFor="email">Email address</label>
-                    <input
-                      required
-                      placeholder="e.g.stephenking@lorem.com"
-                      name="email"
-                      id="email"
-                      type="text"
-                      className="p-2 rounded-lg border border-ligh-gray focus:border-marine-blue mb-5 mt-2"
-                    />
-                    <label htmlFor="number">Phone Number</label>
-                    <input
-                      placeholder="e.g.+1 234 567 890"
-                      required
-                      name="number"
-                      id="number"
-                      type="text"
-                      className="p-2 rounded-lg border border-ligh-gray focus:border-marine-blue mb-5 mt-2"
-                    />
-                  </div>
-                </form>
-              </div>
+              {/* <Info /> */}
+              <Plan />
             </div>
             <div className="bg-white lg:bg-transparent h-[20%]  mt-5 min-[1200px]:w-[400px] w-full flex justify-end items-center px-5">
               <button className="px-5 py-2 bg-marine-blue h-fit text-white rounded-md">
