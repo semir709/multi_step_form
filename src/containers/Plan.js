@@ -41,7 +41,7 @@ const Plan = () => {
         text={"You have the option of monthly or yearly billing."}
       />
 
-      <div className="flex justify-between flex-wrap mt-5">
+      <div className="flex justify-between  mt-5">
         {cards.map(({ title, textMonthly, textYearly, img, alt }, index) => (
           <Card
             image={img}

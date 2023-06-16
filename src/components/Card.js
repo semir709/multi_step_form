@@ -13,7 +13,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`w-[150px] border border-ligh-gray  p-3 rounded-2xl cursor-pointer hover:border-marine-blue ${
+      className={`w-[150px]  border border-ligh-gray  p-3 rounded-2xl cursor-pointer hover:border-marine-blue ${
         index === state ? "bg-custom-magnolia" : "bg-white"
       }`}
       onClick={onClick}

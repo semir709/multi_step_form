@@ -8,10 +8,10 @@ import Plan from "./containers/Plan";
 function App() {
   return (
     <>
-      <div className="w-full h-screen flex flex-col justify-center items-center lg:bg-ligh-gray">
-        <div className="lg:w-3/5 lg:h-[600px] w-full h-full lg:bg-white bg-ligh-gray lg:rounded-2xl flex flex-col lg:flex-row lg:py-4 lg:pl-4">
-          <div className=" lg:h-full h-[20%]  lg:bg-[url('./assets/images/bg-sidebar-desktop.svg')]  bg-[url('./assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat lg:w-1/3 lg:min-w-[200px] w-full lg:rounded-2xl">
-            <ul className=" my-5 mx-3 text-white lg:block flex justify-center">
+      <div className="w-full h-screen flex flex-col justify-center items-center sm:bg-ligh-gray">
+        <div className="sm:w-4/5 sm:h-[600px] w-full h-full sm:bg-white bg-ligh-gray sm:rounded-2xl flex flex-col sm:flex-row sm:py-4 sm:pl-4">
+          <div className=" sm:h-full h-[20%]  sm:bg-[url('./assets/images/bg-sidebar-desktop.svg')]  bg-[url('./assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat sm:w-1/3 sm:min-w-[200px] w-full sm:rounded-2xl">
+            <ul className=" my-5 mx-3 text-white sm:block flex justify-center">
               <li className="mx-3">
                 <List number={1} text={"Your info"} step={1} />
               </li>
@@ -26,13 +26,13 @@ function App() {
               </li>
             </ul>
           </div>
-          <div className=" w-full h-full lg:mx-3 flex flex-col items-center justify-between ">
-            <div className=" translate-y-[-30px] lg:translate-y-0  min-[1200px]:w-[500px] lg:w-full h-full w-[90%] bg-white lg:bg-transparent lg:rounded-none rounded-2xl p-5 lg:p-0">
+          <div className="w-full h-full sm:mx-3 flex flex-col items-center justify-between ">
+            <div className=" translate-y-[-30px] sm:translate-y-0  sm:w-[75%]  h-full w-[90%] bg-white sm:bg-transparent sm:rounded-none rounded-2xl p-5 sm:p-0">
               {/* url */}
-              {/* <Info /> */}
-              <Plan />
+              <Info />
+              {/* <Plan /> */}
             </div>
-            <div className="bg-white lg:bg-transparent h-[20%]  mt-5 min-[1200px]:w-[400px] w-full flex justify-end items-center px-5">
+            <div className="bg-white sm:bg-transparent h-[20%]  mt-5 sm:w-[75%] w-full flex justify-end items-center sm:px-0 px-5">
               <button className="px-5 py-2 bg-marine-blue h-fit text-white rounded-md">
                 Next Step
               </button>
