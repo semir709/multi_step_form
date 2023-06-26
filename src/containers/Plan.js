@@ -35,13 +35,13 @@ const Plan = () => {
   const [cardState, setCardState] = useState(0);
 
   return (
-    <div className="mt-5 h-full w-full r">
+    <div className="mt-5 h-fit w-full ">
       <HeaderInfo
         title={"Select you plan"}
         text={"You have the option of monthly or yearly billing."}
       />
 
-      <div className="flex justify-between  mt-5">
+      <div className="flex justify-between lg:flex-row flex-col  mt-5 ">
         {cards.map(({ title, textMonthly, textYearly, img, alt }, index) => (
           <Card
             image={img}
@@ -57,9 +57,9 @@ const Plan = () => {
         ))}
       </div>
 
-      <div className="flex w-full justify-center bg-custom-magnolia mt-5 px-2 py-5 rounded-lg">
+      <div className="flex w-full justify-center bg-custom-magnolia mt-5 px-2 py-4 rounded-lg">
         <p
-          className={`mx-4 font-medium ${
+          className={`mx-4 font-base ${
             slide ? "text-marine-blue" : "text-cool-gray"
           }`}
         >
@@ -67,7 +67,7 @@ const Plan = () => {
         </p>
         <Slider setSlide={setSlide} />
         <p
-          className={`mx-4 font-medium ${
+          className={`mx-4 font-base ${
             slide ? "text-cool-gray" : "text-marine-blue"
           }`}
         >

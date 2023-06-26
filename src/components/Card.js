@@ -13,21 +13,23 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`w-[150px]  border border-ligh-gray  p-3 rounded-2xl cursor-pointer hover:border-marine-blue ${
+      className={`lg:w-[150px] h-fit w-full  lg:my-3 my-1  flex lg:flex-col lg:items-start lg:justify-between items-center  border border-ligh-gray  lg:p-5 p-3 rounded-2xl cursor-pointer hover:border-marine-blue ${
         index === state ? "bg-custom-magnolia" : "bg-white"
       }`}
       onClick={onClick}
     >
-      <img src={image} alt={alt} className="mb-[35px]" />
-      <h3 className="text-lg text-marine-blue">{title}</h3>
-      {slide ? (
-        <p className="text-cool-gray">{textMonthly}</p>
-      ) : (
-        <p className="text-cool-gray">{textYearly}</p>
-      )}
-      {slide === false && (
-        <p className="text-marine-blue text-sm">2 months free</p>
-      )}
+      <img src={image} alt={alt} className="h-[35px] w-[35px] lg:mb-[50px]" />
+      <div className="lg:ms-0 ms-5 ">
+        <h3 className="text-base text-marine-blue">{title}</h3>
+        {slide ? (
+          <p className="text-cool-gray text-sm lg:text-base">{textMonthly}</p>
+        ) : (
+          <p className="text-cool-gray text-sm lg:text-base">{textYearly}</p>
+        )}
+        {slide === false && (
+          <p className="text-marine-blue text-sm lg:text-base">2 months free</p>
+        )}
+      </div>
     </div>
   );
 };
