@@ -6,6 +6,7 @@ import Info from "./containers/Info";
 import Plan from "./containers/Plan";
 import FooterButton from "./components/FooterButton";
 import AddOns from "./containers/AddOns";
+import Finishing from "./containers/Finishing";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           </div>
           <div className="w-full  h-full bg-ligh-gray sm:bg-transparent flex justify-center ">
             <div className=" lg:w-[500px] sm:w-3/4 h-full w-4/5 bg-white -translate-y-8  sm:translate-y-0 sm:rounded-none rounded-2xl p-5 sm:p-0">
-              <AddOns />
+              <Finishing />
             </div>
           </div>
 
