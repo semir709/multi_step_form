@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import sidebarDesktop from "./assets/images/bg-sidebar-desktop.svg";
 import List from "./components/List";
 import Info from "./containers/Info";
@@ -26,6 +26,9 @@ function App() {
   const [pro, setPro] = useState(false);
 
   const [cardState, setCardState] = useState(0);
+
+  const location = useLocation();
+
   return (
     <>
       <Context.Provider
@@ -54,16 +57,26 @@ function App() {
             <div className="sm:w-[320px] lg:w-[400px] sm:h-full  w-full h-[200px] sm:bg-[url('./assets/images/bg-sidebar-desktop.svg')]  bg-[url('./assets/images/bg-sidebar-mobile.svg')] bg-cover bg-center bg-no-repeat sm:rounded-2xl">
               <ul className=" mt-5 mx-3 text-white sm:block flex justify-center h-fit">
                 <li className="mx-3 h-fit">
-                  <List number={1} text={"Your info"} step={1} />
+                  <List number={1} text={"Your info"} step={1} slug={"/"} />
                 </li>
                 <li className="mx-3">
-                  <List number={2} text={"Your info"} step={2} />
+                  <List
+                    number={2}
+                    text={"Select Plan"}
+                    step={2}
+                    slug={"/plan"}
+                  />
                 </li>
                 <li className="mx-3">
-                  <List number={3} text={"Your info"} step={3} />
+                  <List number={3} text={"Add-ons"} step={3} slug={"/addOns"} />
                 </li>
                 <li className="mx-3">
-                  <List number={4} text={"Your info"} step={4} />
+                  <List
+                    number={4}
+                    text={"summary"}
+                    step={4}
+                    slug={"/finishing"}
+                  />
                 </li>
               </ul>
             </div>

@@ -95,7 +95,10 @@ const FooterButton = () => {
     <div className="w-full h-full  flex justify-between items-center ">
       <div className="">
         {location.pathname !== "/" && (
-          <button className="" onClick={goBack}>
+          <button
+            className="text-cool-gray hover:text-marine-blue"
+            onClick={goBack}
+          >
             Previous
           </button>
         )}
