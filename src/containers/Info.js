@@ -10,13 +10,10 @@ const Info = () => {
     emailInputRef,
     nameInputRef,
     phoneInputRef,
+    emailInput,
+    phoneInput,
+    nameInput,
   } = useContext(Context);
-
-  useEffect(() => {
-    setEmailInput("");
-    setPhoneInput("");
-    setNameInput("");
-  }, []);
 
   const inputChangeEmail = (e) => {
     setEmailInput(e.target.value);
@@ -46,6 +43,7 @@ const Info = () => {
 
             <input
               ref={nameInputRef}
+              value={nameInput}
               required
               placeholder="e.g.Stephen King"
               name="name"
@@ -60,6 +58,7 @@ const Info = () => {
               <label htmlFor="email">Email address</label>
             </div>
             <input
+              value={emailInput}
               ref={emailInputRef}
               required
               placeholder="e.g.stephenking@lorem.com"
@@ -78,6 +77,7 @@ const Info = () => {
               <label htmlFor="number">Phone Number</label>
             </div>
             <input
+              value={phoneInput}
               ref={phoneInputRef}
               placeholder="e.g.+1 234 567 890"
               required

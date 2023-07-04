@@ -20,6 +20,12 @@ function App() {
   const emailInputRef = useRef(null);
   const nameInputRef = useRef(null);
   const phoneInputRef = useRef(null);
+
+  const [onlineService, setOnlineService] = useState(false);
+  const [largeStorage, setLargeStorage] = useState(false);
+  const [pro, setPro] = useState(false);
+
+  const [cardState, setCardState] = useState(0);
   return (
     <>
       <Context.Provider
@@ -33,6 +39,14 @@ function App() {
           emailInputRef,
           nameInputRef,
           phoneInputRef,
+          cardState,
+          setCardState,
+          setOnlineService,
+          setLargeStorage,
+          setPro,
+          onlineService,
+          largeStorage,
+          pro,
         }}
       >
         <div className="w-full h-screen flex justify-center items-center">

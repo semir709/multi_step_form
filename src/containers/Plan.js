@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import HeaderInfo from "../components/HeaderInfo";
 import arcade from "../assets/images/icon-arcade.svg";
 import advanced from "../assets/images/icon-advanced.svg";
 import pro from "../assets/images/icon-pro.svg";
 import Slider from "../components/Slider/Slider";
 import Card from "../components/Card";
+import { Context } from "../utils";
 
 const cards = [
   {
@@ -32,7 +33,7 @@ const cards = [
 
 const Plan = () => {
   const [slide, setSlide] = useState(true);
-  const [cardState, setCardState] = useState(0);
+  const { cardState, setCardState } = useContext(Context);
 
   return (
     <div className="mt-5 h-fit w-full ">

@@ -26,13 +26,6 @@ const clearMessage = (inputRef, id) => {
     target.style.border =
       "1px solid hsl(229 24% 87% / var(--tw-border-opacity))";
   }
-
-  // if (target) {
-  //   target.style.border =
-  //     "1px solid hsl(229 24% 87% / var(--tw-border-opacity))";
-
-  //   document.querySelector("#" + id).remove();
-  // }
 };
 
 const FooterButton = () => {
@@ -77,9 +70,17 @@ const FooterButton = () => {
     }
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="w-full h-full  flex justify-between items-center ">
-      <div className="">Prevous</div>
+      <div className="">
+        <button className="" onClick={goBack}>
+          Previous
+        </button>
+      </div>
       <div className="">
         <button
           type="submit"
