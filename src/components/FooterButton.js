@@ -36,6 +36,13 @@ const FooterButton = () => {
     emailInputRef,
     nameInputRef,
     phoneInputRef,
+    setEmailInput,
+    setPhoneInput,
+    setNameInput,
+    setCardState,
+    setOnlineService,
+    setLargeStorage,
+    setPro,
   } = useContext(Context);
   const navigate = useNavigate();
   const location = useLocation();
@@ -50,7 +57,17 @@ const FooterButton = () => {
       if (location.pathname === "/plan") navigate("/addOns");
       if (location.pathname === "/addOns") navigate("/finishing");
       if (location.pathname === "/finishing") navigate("/thanks");
-      if (location.pathname === "/thanks") navigate("/");
+      if (location.pathname === "/thanks") {
+        setEmailInput("");
+        setPhoneInput("");
+        setNameInput("");
+        setCardState(0);
+        setOnlineService(false);
+        setLargeStorage(false);
+        setPro(false);
+
+        navigate("/");
+      }
     } else {
       clearMessage(phoneInputRef, "phoneMessage");
       clearMessage(nameInputRef, "nameMessage");
@@ -77,9 +94,11 @@ const FooterButton = () => {
   return (
     <div className="w-full h-full  flex justify-between items-center ">
       <div className="">
-        <button className="" onClick={goBack}>
-          Previous
-        </button>
+        {location.pathname !== "/" && (
+          <button className="" onClick={goBack}>
+            Previous
+          </button>
+        )}
       </div>
       <div className="">
         <button
