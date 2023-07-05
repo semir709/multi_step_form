@@ -12,6 +12,8 @@ import { createContext, useContext, useRef, useState } from "react";
 
 import { Context } from "./utils";
 
+import { cards } from "./utils";
+
 function App() {
   const [emailInput, setEmailInput] = useState("");
   const [nameInput, setNameInput] = useState("");
@@ -27,7 +29,13 @@ function App() {
 
   const [cardState, setCardState] = useState(0);
 
-  const location = useLocation();
+  const [yearly, setYearly] = useState(false);
+
+  const [storePlan, setStorePlan] = useState({
+    title: cards[0].title,
+    priceYearly: cards[0].priceYearly,
+    priceMonthly: cards[0].priceMonthly,
+  });
 
   return (
     <>
@@ -50,6 +58,10 @@ function App() {
           onlineService,
           largeStorage,
           pro,
+          yearly,
+          setYearly,
+          storePlan,
+          setStorePlan,
         }}
       >
         <div className="w-full h-screen flex justify-center items-center">

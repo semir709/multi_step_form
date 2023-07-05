@@ -21,12 +21,17 @@ const Card = ({
       <img src={image} alt={alt} className="h-[35px] w-[35px] lg:mb-[50px]" />
       <div className="lg:ms-0 ms-5 ">
         <h3 className="text-base text-marine-blue">{title}</h3>
-        {slide ? (
-          <p className="text-cool-gray text-sm lg:text-base">{textMonthly}</p>
+        {slide === false ? (
+          <p className="text-cool-gray text-sm lg:text-base">
+            {" "}
+            ${textMonthly}/mo
+          </p>
         ) : (
-          <p className="text-cool-gray text-sm lg:text-base">{textYearly}</p>
+          <p className="text-cool-gray text-sm lg:text-base">
+            ${textYearly}/yr
+          </p>
         )}
-        {slide === false && (
+        {slide && (
           <p className="text-marine-blue text-sm lg:text-base">2 months free</p>
         )}
       </div>

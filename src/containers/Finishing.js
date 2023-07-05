@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeaderInfo from "../components/HeaderInfo";
+import { Context } from "../utils";
 
 const Finishing = () => {
+  const { storePlan, yearly } = useContext(Context);
+
+  console.log(storePlan);
+
   return (
     <div className="mt-5">
       <HeaderInfo
@@ -14,14 +19,16 @@ const Finishing = () => {
           <div className="flex w-full justify-between items-center">
             <div>
               <span className="block text-marine-blue font-bold text-lg">
-                Arcade(Yearly)
+                {storePlan.title}
               </span>
               <span className="text-sm text-cool-gray hover:cursor-pointer underline">
                 Change
               </span>
             </div>
             <label className="text-marine-blue font-bold text-base">
-              $9/mo
+              {yearly
+                ? "$" + storePlan.priceYearly + "/yr"
+                : "$" + storePlan.priceMonthly + "/mo"}
             </label>
           </div>
           <div className="w-full bg-ligh-gray h-[1px] my-5"></div>
