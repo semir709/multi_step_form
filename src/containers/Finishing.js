@@ -1,13 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HeaderInfo from "../components/HeaderInfo";
 import { Context } from "../utils";
 
-import { addOnsList } from "../utils";
-
 const Finishing = () => {
   const { storePlan, yearly, addOnsCheckeck } = useContext(Context);
+  const [addOnsChecked, setAddOnstChecked] = useState([]);
 
-  console.log(addOnsCheckeck);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setAddOnstChecked(addOnsCheckeck.filter(({ check }) => check === true));
+  }, [addOnsCheckeck]);
+
+  useEffect(() => {
+    setTotal(0);
+    if (yearly) {
+      if (addOnsChecked.length === 0) setTotal(0);
+      else
+        setTotal(
+          addOnsChecked
+            .map(({ yearlyPrice }) => yearlyPrice)
+            .reduce((accumulator, current) => accumulator + current)
+        );
+      setTotal((prev) => (prev += storePlan.priceYearly));
+    } else {
+      if (addOnsChecked.length === 0) setTotal(0);
+      else
+        setTotal(
+          addOnsChecked
+            .map(({ monthlyPrice }) => monthlyPrice)
+            .reduce((accumulator, current) => accumulator + current)
+        );
+      setTotal((prev) => (prev += storePlan.priceMonthly));
+    }
+  }, [storePlan, addOnsChecked, yearly]);
 
   return (
     <div className="mt-5">
@@ -35,22 +61,23 @@ const Finishing = () => {
           </div>
           <div className="w-full bg-ligh-gray h-[1px] my-5"></div>
 
-          {addOnsCheckeck
-            .filter(({ check }) => check === true)
-            .map(({ title, monthlyPrice, yearlyPrice }) => (
-              <div className="flex w-full justify-between items-center my-3">
-                <span className="text-sm text-cool-gray">{title}</span>
-                <label className="text-sm text-marine-blue">
-                  {yearly
-                    ? "+$" + yearlyPrice + "/yr"
-                    : "+$" + monthlyPrice + "/mo"}
-                </label>
-              </div>
-            ))}
+          {addOnsChecked.map(({ title, monthlyPrice, yearlyPrice }) => (
+            <div className="flex w-full justify-between items-center my-3">
+              <span className="text-sm text-cool-gray">{title}</span>
+              <label className="text-sm text-marine-blue">
+                {yearly
+                  ? "+$" + yearlyPrice + "/yr"
+                  : "+$" + monthlyPrice + "/mo"}
+              </label>
+            </div>
+          ))}
         </div>
         <div className="flex justify-between w-full items-center mt-5 px-3">
           <span className="text-sm text-cool-gray">Total(per year)</span>
-          <label className="text-2xl text-purplish-blue">+$12/mo</label>
+          <label className="text-2xl text-purplish-blue">
+            +${total}
+            {yearly ? "/yr" : "/mo"}
+          </label>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ const Slider = ({ setSlide }) => {
           ref={inputRef}
           type="checkbox"
           onClick={() => setSlide((prev) => !prev)}
+          checked={yearly}
         />
         <span class="slider round"></span>
       </label>

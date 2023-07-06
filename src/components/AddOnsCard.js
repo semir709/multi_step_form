@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../utils";
-
-import { addOnsList } from "../utils";
 
 export const AddOnsCard = ({
   text,
