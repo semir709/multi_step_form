@@ -28,3 +28,27 @@ export const cards = [
     alt: "pro",
   },
 ];
+
+export const addOnsList = [
+  {
+    text: "Online service",
+    smallText: "Access to multiplayer games",
+    price: 1,
+    yearlyPrice: 10,
+    slug: 0,
+  },
+  {
+    text: "Large storage",
+    smallText: "Extra 1TB of cloud save",
+    price: 2,
+    yearlyPrice: 20,
+    slug: 1,
+  },
+  {
+    text: "Pro",
+    smallText: "adsasd",
+    price: 2,
+    yearlyPrice: 20,
+    id: 2,
+  },
+];

@@ -13,6 +13,7 @@ import { createContext, useContext, useRef, useState } from "react";
 import { Context } from "./utils";
 
 import { cards } from "./utils";
+import { addOnsList } from "./utils";
 
 function App() {
   const [emailInput, setEmailInput] = useState("");
@@ -36,6 +37,17 @@ function App() {
     priceYearly: cards[0].priceYearly,
     priceMonthly: cards[0].priceMonthly,
   });
+
+  const [addOnsCheckeck, setAddOnsCheck] = useState(
+    addOnsList.map((data) => {
+      return {
+        check: false,
+        title: data.text,
+        monthlyPrice: data.price,
+        yearlyPrice: data.yearlyPrice,
+      };
+    })
+  );
 
   return (
     <>
@@ -62,6 +74,8 @@ function App() {
           setYearly,
           storePlan,
           setStorePlan,
+          addOnsCheckeck,
+          setAddOnsCheck,
         }}
       >
         <div className="w-full h-screen flex justify-center items-center">

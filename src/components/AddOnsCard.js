@@ -1,23 +1,31 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../utils";
 
+import { addOnsList } from "../utils";
+
 export const AddOnsCard = ({
   text,
   smallText,
   price,
   yearlyPrice,
   yearly,
-  isChecked,
-  setSelect,
+  index,
 }) => {
+  const { addOnsCheckeck, setAddOnsCheck } = useContext(Context);
+
+  const onClick = () => {
+    setAddOnsCheck((prev) => {
+      prev[index].check = !prev[index].check;
+      return [...prev];
+    });
+  };
+
   return (
     <div
       className={`flex justify-between items-center my-4 border px-4 py-2 rounded-md hover:cursor-pointer ${
-        isChecked && "bg-custom-magnolia border-marine-blue"
+        addOnsCheckeck[index].check && "bg-custom-magnolia border-marine-blue"
       }`}
-      onClick={() => {
-        setSelect((prev) => !prev);
-      }}
+      onClick={onClick}
     >
       <div className="flex items-center">
         <div className="me-5">
@@ -26,7 +34,7 @@ export const AddOnsCard = ({
             type="checkbox"
             value=""
             class="w-4 h-4 rounded"
-            checked={isChecked}
+            checked={addOnsCheckeck[index].check}
           />
         </div>
         <div>
@@ -36,7 +44,7 @@ export const AddOnsCard = ({
       </div>
       <div className="">
         <p className="text-base text-purplish-blue">
-          {yearly ? yearlyPrice : price}
+          {yearly ? "+$" + yearlyPrice + "/yr" : "+$" + price + "/mo"}
         </p>
       </div>
     </div>

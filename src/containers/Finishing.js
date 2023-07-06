@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import HeaderInfo from "../components/HeaderInfo";
 import { Context } from "../utils";
 
-const Finishing = () => {
-  const { storePlan, yearly } = useContext(Context);
+import { addOnsList } from "../utils";
 
-  console.log(storePlan);
+const Finishing = () => {
+  const { storePlan, yearly, addOnsCheckeck } = useContext(Context);
+
+  console.log(addOnsCheckeck);
 
   return (
     <div className="mt-5">
@@ -33,14 +35,18 @@ const Finishing = () => {
           </div>
           <div className="w-full bg-ligh-gray h-[1px] my-5"></div>
 
-          <div className="flex w-full justify-between items-center my-3">
-            <span className="text-sm text-cool-gray">Online service</span>
-            <label className="text-sm text-marine-blue">+$1/mo</label>
-          </div>
-          <div className="flex w-full justify-between items-center my-3">
-            <span className="text-sm text-cool-gray">Larger storage</span>
-            <label className="text-sm text-marine-blue">+$2/mo</label>
-          </div>
+          {addOnsCheckeck
+            .filter(({ check }) => check === true)
+            .map(({ title, monthlyPrice, yearlyPrice }) => (
+              <div className="flex w-full justify-between items-center my-3">
+                <span className="text-sm text-cool-gray">{title}</span>
+                <label className="text-sm text-marine-blue">
+                  {yearly
+                    ? "+$" + yearlyPrice + "/yr"
+                    : "+$" + monthlyPrice + "/mo"}
+                </label>
+              </div>
+            ))}
         </div>
         <div className="flex justify-between w-full items-center mt-5 px-3">
           <span className="text-sm text-cool-gray">Total(per year)</span>
