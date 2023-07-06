@@ -1,6 +1,8 @@
 import React, { createElement, useContext } from "react";
 import { Context } from "../utils";
 import { useLocation, useNavigate } from "react-router-dom";
+import { addOnsList } from "../utils";
+import { cards } from "../utils";
 
 const isEmptyMessage = (inputRef, id, messageId) => {
   const target = inputRef.current;
@@ -43,6 +45,9 @@ const FooterButton = () => {
     setOnlineService,
     setLargeStorage,
     setPro,
+    setAddOnsCheck,
+    setYearly,
+    setStorePlan,
   } = useContext(Context);
   const navigate = useNavigate();
   const location = useLocation();
@@ -65,6 +70,22 @@ const FooterButton = () => {
         setOnlineService(false);
         setLargeStorage(false);
         setPro(false);
+        setStorePlan({
+          title: cards[0].title,
+          priceYearly: cards[0].priceYearly,
+          priceMonthly: cards[0].priceMonthly,
+        });
+        setAddOnsCheck(
+          addOnsList.map((data) => {
+            return {
+              check: false,
+              title: data.text,
+              monthlyPrice: data.price,
+              yearlyPrice: data.yearlyPrice,
+            };
+          })
+        );
+        setYearly(false);
 
         navigate("/");
       }
