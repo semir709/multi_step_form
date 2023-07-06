@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import HeaderInfo from "../components/HeaderInfo";
-import FooterButton from "../components/FooterButton";
 import { Context } from "../utils";
 const Info = () => {
   const {

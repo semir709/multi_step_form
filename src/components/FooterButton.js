@@ -1,10 +1,10 @@
 import React, { createElement, useContext } from "react";
-import { Context } from "../utils";
+import { Context, validateEmail } from "../utils";
 import { useLocation, useNavigate } from "react-router-dom";
 import { addOnsList } from "../utils";
 import { cards } from "../utils";
 
-const isEmptyMessage = (inputRef, id, messageId) => {
+const isEmptyMessage = (inputRef, id, messageId, messageText) => {
   const target = inputRef.current;
   target.style.border = "1px red solid";
 
@@ -12,7 +12,7 @@ const isEmptyMessage = (inputRef, id, messageId) => {
 
   const message = document.createElement("label");
 
-  message.innerHTML = "The filed is required";
+  message.innerHTML = messageText;
   message.style.color = "red";
   message.id = messageId;
 
@@ -58,7 +58,20 @@ const FooterButton = () => {
       nameInput.length > 0 &&
       phoneInput.length > 0
     ) {
-      if (location.pathname === "/") navigate("/plan");
+      if (location.pathname === "/") {
+        if (validateEmail(emailInput)) navigate("/plan");
+        else {
+          clearMessage(phoneInputRef, "phoneMessage");
+          clearMessage(nameInputRef, "nameMessage");
+          clearMessage(emailInputRef, "emailMessage");
+          isEmptyMessage(
+            emailInputRef,
+            "emailHolder",
+            "emailMessage",
+            "E-mail is not valid"
+          );
+        }
+      }
       if (location.pathname === "/plan") navigate("/addOns");
       if (location.pathname === "/addOns") navigate("/finishing");
       if (location.pathname === "/finishing") navigate("/thanks");
@@ -95,15 +108,30 @@ const FooterButton = () => {
       clearMessage(emailInputRef, "emailMessage");
 
       if (emailInput.length === 0) {
-        isEmptyMessage(emailInputRef, "emailHolder", "emailMessage");
+        isEmptyMessage(
+          emailInputRef,
+          "emailHolder",
+          "emailMessage",
+          "The filed is required"
+        );
       }
 
       if (nameInput.length === 0) {
-        isEmptyMessage(nameInputRef, "nameHolder", "nameMessage");
+        isEmptyMessage(
+          nameInputRef,
+          "nameHolder",
+          "nameMessage",
+          "The filed is required"
+        );
       }
 
       if (phoneInput.length === 0) {
-        isEmptyMessage(phoneInputRef, "phoneHolder", "phoneMessage");
+        isEmptyMessage(
+          phoneInputRef,
+          "phoneHolder",
+          "phoneMessage",
+          "The filed is required"
+        );
       }
     }
   };
