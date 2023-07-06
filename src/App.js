@@ -1,6 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
-import sidebarDesktop from "./assets/images/bg-sidebar-desktop.svg";
+import { Routes, Route } from "react-router-dom";
 import List from "./components/List";
 import Info from "./containers/Info";
 import Plan from "./containers/Plan";
@@ -8,7 +7,7 @@ import FooterButton from "./components/FooterButton";
 import AddOns from "./containers/AddOns";
 import Finishing from "./containers/Finishing";
 import ThankYou from "./containers/ThankYou";
-import { createContext, useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { Context } from "./utils";
 

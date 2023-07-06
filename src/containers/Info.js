@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import HeaderInfo from "../components/HeaderInfo";
 import { Context } from "../utils";
 const Info = () => {

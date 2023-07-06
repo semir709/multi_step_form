@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import HeaderInfo from "../components/HeaderInfo";
 
 import Slider from "../components/Slider/Slider";

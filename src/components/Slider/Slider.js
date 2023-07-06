@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./slider.css";
 import { Context } from "../../utils";
 
 const Slider = ({ setSlide }) => {
-  const { yearly, setStorePlan, storePlan } = useContext(Context);
+  const { yearly } = useContext(Context);
   const inputRef = useRef(null);
 
   return (
