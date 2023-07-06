@@ -32,7 +32,7 @@ const Info = () => {
 
       <form
         action="/plan"
-        className="flex flex-col justify-between mt-[40px] h-full"
+        className="flex flex-col justify-between mt-[40px] h-fit"
       >
         <div className="flex flex-col text-marine-blue">
           <div>
